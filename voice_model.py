@@ -14,8 +14,8 @@ signText_userX.txt
 
 Format of the data in each file:
 Every instance of the sensor array looks like this:
-(first half corresponds to data from right glove, second half corresponds to
-data from the left glove)
+(first half corresponds to data from left glove, second half corresponds to
+data from the right glove)
 acc_x, acc_y, acc_z, gyro_x, gyro_y, gyro_z, flex_1, flex_2, flex_3, flex_4, flex5 |
 acc_x, acc_y, acc_z, gyro_x, gyro_y, gyro_z, flex_1, flex_2, flex_3, flex_4, flex5
 
