@@ -25,12 +25,16 @@ from each other with the keyword END
 """
 
 import os
-
+import random
+import pandas as pd
+import numpy as np
+from scipy.fftpack import dct
     
 def prepare_training_data():
     data = []
-    values = {"left": [], "right": []}
+
     for file in os.listdir("./data"):
+        values = {"left": [], "right": []}
         names = file.split("_")
         sign = names[0]
         user = names[1].split(".")[0]
@@ -49,28 +53,48 @@ def prepare_training_data():
                 values["right"].append(right_vals)
                 left_vals = []
                 right_vals = []
-                print("Reached the end")
             else:
                 left_array = splits[0].split(",")
                 right_array = splits[1].split(",")
                 
-                left_value = {"accel": [float(left_array[0]), float(left_array[1]), float(left_array[2])],
-                              "gyro": [float(left_array[3]), float(left_array[4]), float(left_array[5])],
-                              "flex": [float(left_array[6]), float(left_array[7]),
-                              float(left_array[8]), float(left_array[9]), float(left_array[10])]}
+                left_value = [float(left_array[0]), float(left_array[1]), float(left_array[2]),
+                              float(left_array[3]), float(left_array[4]), float(left_array[5]),
+                              float(left_array[6]), float(left_array[7]),
+                              float(left_array[8]), float(left_array[9]), float(left_array[10])]
                               
-                right_value = {"accel": [float(right_array[0]), float(right_array[1]), float(right_array[2])],
-                              "gyro": [float(right_array[3]), float(right_array[4]), float(right_array[5])],
-                              "flex": [float(right_array[6]), float(right_array[7]),
-                              float(right_array[8]), float(right_array[9]), float(right_array[10])]}
+                right_value = [float(right_array[0]), float(right_array[1]), float(right_array[2]),
+                              float(right_array[3]), float(right_array[4]), float(right_array[5]),
+                              float(right_array[6]), float(right_array[7]),
+                              float(right_array[8]), float(right_array[9]), float(right_array[10])]
                               
                 left_vals.append(left_value)
                 right_vals.append(right_value)
-                
                             
         data.append({"label": sign, "user": user, "values": values})
     
     return data
     
+def feature_extraction(data):
+    
+#    left_vals = [[x for x in y["values"]["left"]] for y in data]
+    
+    new_data = []
+    for f_data in data:
+        
+        left_vals = [val for val in f_data["values"]["left"]]
 
-print(prepare_training_data())
+        a = np.array(left_vals)
+
+        for y in a:
+            features = []
+            b = np.array(y)
+            
+            if len(b) != 0 and len(b[0]) != 0:
+                features.append(np.mean(b[:, 0]))
+
+            new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features})
+    
+    return new_data
+    
+
+print(feature_extraction(prepare_training_data()))
