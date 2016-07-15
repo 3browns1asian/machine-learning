@@ -26,8 +26,7 @@ from each other with the keyword END
 
 import os
 import random
-import math
-import pandas as pd
+#import pandas as pd
 import numpy as np
 from scipy.fftpack import dct
 
@@ -84,60 +83,109 @@ def feature_extraction(data):
     
     for f_data in data:
         
-        left_vals = [val for val in f_data["values"]["left"]]
+        left_vals = np.array([val for val in f_data["values"]["left"]])
+        right_vals = np.array([val for val in f_data["values"]["left"]])
+        
 
-        a = np.array(left_vals)
-
-        for y in a:
+        for y in range(len(left_vals)):
             features = []
-            b = np.array(y)
+            a = np.array(left_vals[y])
+            b = np.array(right_vals[y])
             
-            if len(b) != 0 and len(b[0]) != 0:
+            # Left hand features
+            if len(a) != 0 and len(a[0]) != 0:
                 # Feature 1: Mean of DCT of Acceleration of X
-                transformed_values_x = np.array(dct(b[:, 0]))
+                transformed_values_x = np.array(dct(a[:, 0]))
                 features.append(round(np.mean(transformed_values_x), 3))
                 
                 # Feature 2: Mean of DCT of Acceleration of Y
-                transformed_values_y = np.array(dct(b[:, 1]))
+                transformed_values_y = np.array(dct(a[:, 1]))
                 features.append(round(np.mean(transformed_values_y), 3))
                 
                 # Feature 3: Mean of DCT of Acceleration of Z
-                transformed_values_z = np.array(dct(b[:, 2]))
+                transformed_values_z = np.array(dct(a[:, 2]))
                 features.append(round(np.mean(transformed_values_z), 3))
                 
                 # Feature 4/5: Mean Absolute Deviation and Mean of gyro in X
+                features.append(round(mad(a[:, 3])))
+                features.append(round(np.mean(a[:, 3])))
+                
+                # Feature 6/7: Mean Absolute Deviation and Mean of gyro in Y
+                features.append(round(mad(a[:, 4])))
+                features.append(round(np.mean(a[:, 4])))
+                
+                # Feature 8/9: Mean Absolute Deviation and Mean of gyro in Z
+                features.append(round(mad(a[:, 5])))
+                features.append(round(np.mean(a[:, 5])))
+                
+                # Feature 10/11: Standard Absolute Deviation and Mean of flex 1
+                features.append(round(np.std(a[:, 6])))
+                features.append(round(np.mean(a[:, 6])))
+                
+                # Feature 12/13: Standard Absolute Deviation and Mean of flex 2
+                features.append(round(np.std(a[:, 7])))
+                features.append(round(np.mean(a[:, 7])))
+                
+                # Feature 14/15: Standard Absolute Deviation and Mean of flex 3
+                features.append(round(np.std(a[:, 8])))
+                features.append(round(np.mean(a[:, 8])))
+                
+                # Feature 16/17: Standard Absolute Deviation and Mean of flex 4
+                features.append(round(np.std(a[:, 9])))
+                features.append(round(np.mean(a[:, 9])))
+                
+                # Feature 18/19: Standard Absolute Deviation and Mean of flex 5
+                features.append(round(np.std(a[:, 10])))
+                features.append(round(np.mean(a[:, 10])))            
+            
+            # Right hand features
+            if len(b) != 0 and len(b[0]) != 0:
+                # Feature 20: Mean of DCT of Acceleration of X
+                transformed_values_x = np.array(dct(b[:, 0]))
+                features.append(round(np.mean(transformed_values_x), 3))
+                
+                # Feature 21: Mean of DCT of Acceleration of Y
+                transformed_values_y = np.array(dct(b[:, 1]))
+                features.append(round(np.mean(transformed_values_y), 3))
+                
+                # Feature 22: Mean of DCT of Acceleration of Z
+                transformed_values_z = np.array(dct(b[:, 2]))
+                features.append(round(np.mean(transformed_values_z), 3))
+                
+                # Feature 23/24: Mean Absolute Deviation and Mean of gyro in X
                 features.append(round(mad(b[:, 3])))
                 features.append(round(np.mean(b[:, 3])))
                 
-                # Feature 6/7: Mean Absolute Deviation and Mean of gyro in Y
+                # Feature 25/26: Mean Absolute Deviation and Mean of gyro in Y
                 features.append(round(mad(b[:, 4])))
                 features.append(round(np.mean(b[:, 4])))
                 
-                # Feature 8/9: Mean Absolute Deviation and Mean of gyro in Z
+                # Feature 27/28: Mean Absolute Deviation and Mean of gyro in Z
                 features.append(round(mad(b[:, 5])))
                 features.append(round(np.mean(b[:, 5])))
                 
-                # Feature 10/11: Standard Absolute Deviation and Mean of flex 1
+                # Feature 29/30: Standard Absolute Deviation and Mean of flex 1
                 features.append(round(np.std(b[:, 6])))
                 features.append(round(np.mean(b[:, 6])))
                 
-                # Feature 12/13: Standard Absolute Deviation and Mean of flex 2
+                # Feature 31/32: Standard Absolute Deviation and Mean of flex 2
                 features.append(round(np.std(b[:, 7])))
                 features.append(round(np.mean(b[:, 7])))
                 
-                # Feature 14/15: Standard Absolute Deviation and Mean of flex 3
+                # Feature 33/34: Standard Absolute Deviation and Mean of flex 3
                 features.append(round(np.std(b[:, 8])))
                 features.append(round(np.mean(b[:, 8])))
                 
-                # Feature 16/17: Standard Absolute Deviation and Mean of flex 4
+                # Feature 35/36: Standard Absolute Deviation and Mean of flex 4
                 features.append(round(np.std(b[:, 9])))
                 features.append(round(np.mean(b[:, 9])))
                 
-                # Feature 18/19: Standard Absolute Deviation and Mean of flex 5
+                # Feature 37/38: Standard Absolute Deviation and Mean of flex 5
                 features.append(round(np.std(b[:, 10])))
                 features.append(round(np.mean(b[:, 10])))
                 
-            new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features})
+            if len(features) > 0:
+                new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features})
     
     return new_data
     
