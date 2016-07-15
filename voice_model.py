@@ -78,7 +78,49 @@ def prepare_training_data():
     
     return data
     
-def feature_extraction(data):
+def prepare_testing_data():
+    data = []
+
+    for file in os.listdir("./predict"):
+        if file == ".DS_Store":
+            continue
+        
+        values = {"left": [], "right": []}
+        
+        left_vals = []
+        right_vals = []
+        
+        for line in open("./predict/" + file):
+            splits = line.split("|")
+            
+            if splits[0] == "END" or splits[0] == "END\n":
+                values["left"].append(left_vals)
+                values["right"].append(right_vals)
+                left_vals = []
+                right_vals = []
+            else:
+                left_array = splits[0].split(",")
+                right_array = splits[1].split(",")
+                
+                left_value = [float(left_array[0]), float(left_array[1]), float(left_array[2]),
+                              float(left_array[3]), float(left_array[4]), float(left_array[5]),
+                              float(left_array[6]), float(left_array[7]),
+                              float(left_array[8]), float(left_array[9]), float(left_array[10])]
+                              
+                right_value = [float(right_array[0]), float(right_array[1]), float(right_array[2]),
+                              float(right_array[3]), float(right_array[4]), float(right_array[5]),
+                              float(right_array[6]), float(right_array[7]),
+                              float(right_array[8]), float(right_array[9]), float(right_array[10])]
+                              
+                left_vals.append(left_value)
+                right_vals.append(right_value)
+                            
+        data.append({"values": values})
+        random.shuffle(data)
+    
+    return data
+    
+def feature_extraction(data, train = True):
     new_data = []
     
     for f_data in data:
@@ -185,9 +227,13 @@ def feature_extraction(data):
                 features.append(round(np.mean(b[:, 10])))
                 
             if len(features) > 0:
-                new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features})
+                if train:
+                    new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features})
+                else:
+                    new_data.append({"features": features})
     
     return new_data
     
 
 print(feature_extraction(prepare_training_data()))
+print(feature_extraction(prepare_testing_data(), train=False))
