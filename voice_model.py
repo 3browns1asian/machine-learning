@@ -30,6 +30,7 @@ import pandas as pd
 import numpy as np
 from scipy.fftpack import dct
 from sklearn.naive_bayes import GaussianNB
+from sklearn import tree
 
 def mad(data, axis=None):
     return np.mean(np.absolute(data - np.mean(data, axis)), axis)
@@ -254,13 +255,23 @@ for label in df.label:
 
 Y_train = np.array(Y_train)
 
-clf_1 = GaussianNB()
-clf_1.fit(X_train, Y_train)
-
 predict_df = pd.DataFrame(predict_data)
 X_pred = np.array(predict_df.features.tolist())
 
-preds = clf_1.predict(X_pred)
+# The classifiers
+# Naiive Bayes
+clf_1 = GaussianNB()
+clf_1.fit(X_train, Y_train)
 
-for pred in preds:
-    print(cols[pred])
+# Decision Trees
+clf_2 = tree.DecisionTreeClassifier()
+clf_2.fit(X_train, Y_train)
+
+preds_nb = clf_1.predict(X_pred)
+preds_dt = clf_2.predict(X_pred)
+
+print("Naiive Bayes, Decision Tree")
+
+for i in range(len(preds_nb)):    
+    print(cols[preds_nb[i]] + "--" + cols[preds_dt[i]])
+    print("End")
