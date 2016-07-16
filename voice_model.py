@@ -284,28 +284,69 @@ for i in range(len(preds_nb)):
     
 # K-Fold Cross Validation
 #NOTE: Might throw an error where #of classes in subsample is 1.
-kf = KFold(len(X_train), n_folds = 2)
+#kf = KFold(len(X_train), n_folds = 2)
+#
+#scores_nb = []
+#scores_dt = []
+#scores_svm = []
+#
+#for train_index, test_index in kf:
+#    X_t, X_test = X_train[train_index], X_train[test_index]
+#    Y_t, Y_test = Y_train[train_index], Y_train[test_index]
+#    
+#    clf_test_nb = GaussianNB()
+#    clf_test_nb.fit(X_t, Y_t)
+#    scores_nb.append(clf_test_nb.score(X_test, Y_test))
+#    
+#    clf_test_dt = tree.DecisionTreeClassifier()
+#    clf_test_dt.fit(X_t, Y_t)
+#    scores_dt.append(clf_test_dt.score(X_test, Y_test))
+#    
+#    clf_test_svm = svm.SVC(kernel = "rbf", C=10000.0)
+#    clf_test_svm.fit(X_t, Y_t)
+#    scores_svm.append(clf_test_svm.score(X_test, Y_test))
+#    
+#print(scores_nb)
+#print(scores_dt)
+#print(scores_svm)
 
-scores_nb = []
-scores_dt = []
-scores_svm = []
+# Leave one user out cross validation
+leave_out_user = random.choice(df.user.unique().tolist())
+df_test = df.loc[df['user'] == leave_out_user]
+df_train = df.loc[df['user'] != leave_out_user]
 
-for train_index, test_index in kf:
-    X_t, X_test = X_train[train_index], X_train[test_index]
-    Y_t, Y_test = Y_train[train_index], Y_train[test_index]
-    
-    clf_test_nb = GaussianNB()
-    clf_test_nb.fit(X_t, Y_t)
-    scores_nb.append(clf_test_nb.score(X_test, Y_test))
-    
-    clf_test_dt = tree.DecisionTreeClassifier()
-    clf_test_dt.fit(X_t, Y_t)
-    scores_dt.append(clf_test_dt.score(X_test, Y_test))
-    
-    clf_test_svm = svm.SVC(kernel = "rbf", C=10000.0)
-    clf_test_svm.fit(X_t, Y_t)
-    scores_svm.append(clf_test_svm.score(X_test, Y_test))
-    
-print(scores_nb)
-print(scores_dt)
-print(scores_svm)
+features = df_train.features
+
+# Grab the features and the labels
+X_train = np.array(features.tolist())
+Y_train = []
+
+for label in df_train.label:
+    Y_train.append(cols.index(label))
+
+Y_train = np.array(Y_train)
+
+X_pred = np.array(df_test.features.tolist())
+Y_pred = []
+
+for label in df_test.label:
+    Y_pred.append(cols.index(label))
+
+Y_pred = np.array(Y_pred)
+
+
+# Accuracy
+clf_1 = GaussianNB()
+clf_1.fit(X_train, Y_train)
+
+# Decision Trees
+clf_2 = tree.DecisionTreeClassifier()
+clf_2.fit(X_train, Y_train)
+
+#SVM
+clf_3 = svm.SVC(kernel = "rbf", C=10000.0)
+clf_3.fit(X_train, Y_train)
+
+print(clf_1.score(X_pred, Y_pred))
+print(clf_2.score(X_pred, Y_pred))
+print(clf_3.score(X_pred, Y_pred))
