@@ -31,6 +31,7 @@ import numpy as np
 from scipy.fftpack import dct
 from sklearn.naive_bayes import GaussianNB
 from sklearn import tree
+from sklearn import svm
 
 def mad(data, axis=None):
     return np.mean(np.absolute(data - np.mean(data, axis)), axis)
@@ -118,7 +119,6 @@ def prepare_testing_data():
                 right_vals.append(right_value)
                             
         data.append({"values": values})
-        random.shuffle(data)
     
     return data
     
@@ -267,11 +267,16 @@ clf_1.fit(X_train, Y_train)
 clf_2 = tree.DecisionTreeClassifier()
 clf_2.fit(X_train, Y_train)
 
+# SVM
+clf_3 = svm.SVC(kernel = "rbf", C=10000.0)
+clf_3.fit(X_train, Y_train)
+
 preds_nb = clf_1.predict(X_pred)
 preds_dt = clf_2.predict(X_pred)
+preds_svm = clf_3.predict(X_pred)
 
-print("Naiive Bayes, Decision Tree")
+print("Naiive Bayes, Decision Tree, SVM")
 
 for i in range(len(preds_nb)):    
-    print(cols[preds_nb[i]] + "--" + cols[preds_dt[i]])
+    print(cols[preds_nb[i]] + "--" + cols[preds_dt[i]] +  "--" + cols[preds_svm[i]])
     print("End")
