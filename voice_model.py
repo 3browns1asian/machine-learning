@@ -26,9 +26,10 @@ from each other with the keyword END
 
 import os
 import random
-#import pandas as pd
+import pandas as pd
 import numpy as np
 from scipy.fftpack import dct
+from sklearn.naive_bayes import GaussianNB
 
 def mad(data, axis=None):
     return np.mean(np.absolute(data - np.mean(data, axis)), axis)
@@ -235,5 +236,31 @@ def feature_extraction(data, train = True):
     return new_data
     
 
-print(feature_extraction(prepare_training_data()))
-print(feature_extraction(prepare_testing_data(), train=False))
+# Gather the training and the testing data
+train_data = feature_extraction(prepare_training_data())
+predict_data = feature_extraction(prepare_testing_data(), train=False)
+
+df = pd.DataFrame(train_data)
+
+cols = df.label.unique().tolist()
+features = df.features
+
+# Grab the features and the labels
+X_train = np.array(features.tolist())
+Y_train = []
+
+for label in df.label:
+    Y_train.append(cols.index(label))
+
+Y_train = np.array(Y_train)
+
+clf_1 = GaussianNB()
+clf_1.fit(X_train, Y_train)
+
+predict_df = pd.DataFrame(predict_data)
+X_pred = np.array(predict_df.features.tolist())
+
+preds = clf_1.predict(X_pred)
+
+for pred in preds:
+    print(cols[pred])
