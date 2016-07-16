@@ -32,6 +32,7 @@ from scipy.fftpack import dct
 from sklearn.naive_bayes import GaussianNB
 from sklearn import tree
 from sklearn import svm
+from sklearn.cross_validation import KFold
 
 def mad(data, axis=None):
     return np.mean(np.absolute(data - np.mean(data, axis)), axis)
@@ -280,3 +281,31 @@ print("Naiive Bayes, Decision Tree, SVM")
 for i in range(len(preds_nb)):    
     print(cols[preds_nb[i]] + "--" + cols[preds_dt[i]] +  "--" + cols[preds_svm[i]])
     print("End")
+    
+# K-Fold Cross Validation
+#NOTE: Might throw an error where #of classes in subsample is 1.
+kf = KFold(len(X_train), n_folds = 2)
+
+scores_nb = []
+scores_dt = []
+scores_svm = []
+
+for train_index, test_index in kf:
+    X_t, X_test = X_train[train_index], X_train[test_index]
+    Y_t, Y_test = Y_train[train_index], Y_train[test_index]
+    
+    clf_test_nb = GaussianNB()
+    clf_test_nb.fit(X_t, Y_t)
+    scores_nb.append(clf_test_nb.score(X_test, Y_test))
+    
+    clf_test_dt = tree.DecisionTreeClassifier()
+    clf_test_dt.fit(X_t, Y_t)
+    scores_dt.append(clf_test_dt.score(X_test, Y_test))
+    
+    clf_test_svm = svm.SVC(kernel = "rbf", C=10000.0)
+    clf_test_svm.fit(X_t, Y_t)
+    scores_svm.append(clf_test_svm.score(X_test, Y_test))
+    
+print(scores_nb)
+print(scores_dt)
+print(scores_svm)
