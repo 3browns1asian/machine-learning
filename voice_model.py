@@ -33,6 +33,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn import tree
 from sklearn import svm
 from sklearn.cross_validation import KFold
+from sklearn.externals import joblib
 
 def mad(data, axis=None):
     return np.mean(np.absolute(data - np.mean(data, axis)), axis)
@@ -231,9 +232,9 @@ def feature_extraction(data, train = True):
                 
             if len(features) > 0:
                 if train:
-                    new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features})
+                    new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features[:19]})
                 else:
-                    new_data.append({"features": features})
+                    new_data.append({"features": features[:19]})
     
     return new_data
     
@@ -246,6 +247,10 @@ df = pd.DataFrame(train_data)
 
 cols = df.label.unique().tolist()
 features = df.features
+
+print(cols)
+
+joblib.dump(cols, 'col.pkl')
 
 # Grab the features and the labels
 X_train = np.array(features.tolist())
@@ -272,7 +277,12 @@ clf_2.fit(X_train, Y_train)
 clf_3 = svm.SVC(kernel = "rbf", C=10000.0)
 clf_3.fit(X_train, Y_train)
 
-preds_nb = clf_1.predict(X_pred)
+joblib.dump(clf_1, 'bayes.pkl')
+joblib.dump(clf_2, 'decision_tree.pkl')
+joblib.dump(clf_3, 'svm.pkl')
+
+clf_4 = joblib.load('bayes.pkl')
+preds_nb = clf_4.predict(X_pred)
 preds_dt = clf_2.predict(X_pred)
 preds_svm = clf_3.predict(X_pred)
 
