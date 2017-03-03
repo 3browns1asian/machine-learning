@@ -35,9 +35,11 @@ from sklearn import svm
 from sklearn.cross_validation import KFold
 from sklearn.externals import joblib
 
+
 def mad(data, axis=None):
     return np.mean(np.absolute(data - np.mean(data, axis)), axis)
     
+
 def prepare_training_data():
     data = []
 
@@ -62,19 +64,28 @@ def prepare_training_data():
                 left_vals = []
                 right_vals = []
             else:
-                left_array = splits[0].split(",")
-                right_array = splits[1].split(",")
-                
-                left_value = [float(left_array[0]), float(left_array[1]), float(left_array[2]),
-                              float(left_array[3]), float(left_array[4]), float(left_array[5]),
-                              float(left_array[6]), float(left_array[7]),
-                              float(left_array[8]), float(left_array[9]), float(left_array[10])]
-                              
-                right_value = [float(right_array[0]), float(right_array[1]), float(right_array[2]),
-                              float(right_array[3]), float(right_array[4]), float(right_array[5]),
-                              float(right_array[6]), float(right_array[7]),
-                              float(right_array[8]), float(right_array[9]), float(right_array[10])]
-                              
+                if "|" in line:
+                    left_array = splits[0].split(",")
+                    right_array = splits[1].split(",")
+
+                    left_value = [float(left_array[0]), float(left_array[1]), float(left_array[2]),
+                                  float(left_array[3]), float(left_array[4]), float(left_array[5]),
+                                  float(left_array[6]), float(left_array[7]),
+                                  float(left_array[8]), float(left_array[9]), float(left_array[10])]
+
+                    right_value = [float(right_array[0]), float(right_array[1]), float(right_array[2]),
+                                   float(right_array[3]), float(right_array[4]), float(right_array[5]),
+                                   float(right_array[6]), float(right_array[7]),
+                                   float(right_array[8]), float(right_array[9]), float(right_array[10])]
+
+                else:
+                    left_array = splits[0].split(",")
+                    left_value = [float(left_array[0]), float(left_array[1]), float(left_array[2]),
+                                  float(left_array[3]), float(left_array[4]), float(left_array[5]),
+                                  float(left_array[6]), float(left_array[7]),
+                                  float(left_array[8]), float(left_array[9]), float(left_array[10])]
+                    right_value = [0 for x in range(11)]
+
                 left_vals.append(left_value)
                 right_vals.append(right_value)
                             
@@ -83,6 +94,7 @@ def prepare_training_data():
     
     return data
     
+
 def prepare_testing_data():
     data = []
 
@@ -97,41 +109,51 @@ def prepare_testing_data():
         
         for line in open("./predict/" + file):
             splits = line.split("|")
-            
+
             if splits[0] == "END" or splits[0] == "END\n":
                 values["left"].append(left_vals)
                 values["right"].append(right_vals)
                 left_vals = []
                 right_vals = []
             else:
-                left_array = splits[0].split(",")
-                right_array = splits[1].split(",")
-                
-                left_value = [float(left_array[0]), float(left_array[1]), float(left_array[2]),
-                              float(left_array[3]), float(left_array[4]), float(left_array[5]),
-                              float(left_array[6]), float(left_array[7]),
-                              float(left_array[8]), float(left_array[9]), float(left_array[10])]
-                              
-                right_value = [float(right_array[0]), float(right_array[1]), float(right_array[2]),
-                              float(right_array[3]), float(right_array[4]), float(right_array[5]),
-                              float(right_array[6]), float(right_array[7]),
-                              float(right_array[8]), float(right_array[9]), float(right_array[10])]
-                              
+                if "|" in line:
+                    left_array = splits[0].split(",")
+                    right_array = splits[1].split(",")
+
+                    left_value = [float(left_array[0]), float(left_array[1]), float(left_array[2]),
+                                  float(left_array[3]), float(left_array[4]), float(left_array[5]),
+                                  float(left_array[6]), float(left_array[7]),
+                                  float(left_array[8]), float(left_array[9]), float(left_array[10])]
+
+                    right_value = [float(right_array[0]), float(right_array[1]), float(right_array[2]),
+                                  float(right_array[3]), float(right_array[4]), float(right_array[5]),
+                                  float(right_array[6]), float(right_array[7]),
+                                  float(right_array[8]), float(right_array[9]), float(right_array[10])]
+
+                else:
+                    left_array = splits[0].split(",")
+                    left_value = [float(left_array[0]), float(left_array[1]), float(left_array[2]),
+                                  float(left_array[3]), float(left_array[4]), float(left_array[5]),
+                                  float(left_array[6]), float(left_array[7]),
+                                  float(left_array[8]), float(left_array[9]), float(left_array[10])]
+                    right_value = [0 for x in range(11)]
+
                 left_vals.append(left_value)
                 right_vals.append(right_value)
-                            
+
         data.append({"values": values})
-    
+
+    print data
     return data
     
-def feature_extraction(data, train = True):
+
+def feature_extraction(data, train=True):
     new_data = []
     
     for f_data in data:
         
         left_vals = np.array([val for val in f_data["values"]["left"]])
         right_vals = np.array([val for val in f_data["values"]["left"]])
-        
 
         for y in range(len(left_vals)):
             features = []
@@ -277,12 +299,12 @@ clf_2.fit(X_train, Y_train)
 clf_3 = svm.SVC(kernel = "rbf", C=10000.0)
 clf_3.fit(X_train, Y_train)
 
-joblib.dump(clf_1, 'bayes.pkl')
-joblib.dump(clf_2, 'decision_tree.pkl')
-joblib.dump(clf_3, 'svm.pkl')
+# joblib.dump(clf_1, 'bayes.pkl')
+# joblib.dump(clf_2, 'decision_tree.pkl')
+# joblib.dump(clf_3, 'svm.pkl')
 
-clf_4 = joblib.load('bayes.pkl')
-preds_nb = clf_4.predict(X_pred)
+# clf_4 = joblib.load('bayes.pkl')
+preds_nb = clf_1.predict(X_pred)
 preds_dt = clf_2.predict(X_pred)
 preds_svm = clf_3.predict(X_pred)
 
@@ -291,7 +313,9 @@ print("Naiive Bayes, Decision Tree, SVM")
 for i in range(len(preds_nb)):    
     print(cols[preds_nb[i]] + "--" + cols[preds_dt[i]] +  "--" + cols[preds_svm[i]])
     print("End")
-    
+
+print(np.shape(X_train), np.shape(Y_train))
+
 # K-Fold Cross Validation
 #NOTE: Might throw an error where #of classes in subsample is 1.
 #kf = KFold(len(X_train), n_folds = 2)
@@ -321,42 +345,43 @@ for i in range(len(preds_nb)):
 #print(scores_svm)
 
 # Leave one user out cross validation
-leave_out_user = random.choice(df.user.unique().tolist())
-df_test = df.loc[df['user'] == leave_out_user]
-df_train = df.loc[df['user'] != leave_out_user]
-
-features = df_train.features
-
-# Grab the features and the labels
-X_train = np.array(features.tolist())
-Y_train = []
-
-for label in df_train.label:
-    Y_train.append(cols.index(label))
-
-Y_train = np.array(Y_train)
-
-X_pred = np.array(df_test.features.tolist())
-Y_pred = []
-
-for label in df_test.label:
-    Y_pred.append(cols.index(label))
-
-Y_pred = np.array(Y_pred)
-
-
-# Accuracy
-clf_1 = GaussianNB()
-clf_1.fit(X_train, Y_train)
-
-# Decision Trees
-clf_2 = tree.DecisionTreeClassifier()
-clf_2.fit(X_train, Y_train)
-
-#SVM
-clf_3 = svm.SVC(kernel = "rbf", C=10000.0)
-clf_3.fit(X_train, Y_train)
-
-print(clf_1.score(X_pred, Y_pred))
-print(clf_2.score(X_pred, Y_pred))
-print(clf_3.score(X_pred, Y_pred))
+# leave_out_user = random.choice(df.user.unique().tolist())
+# df_test = df.loc[df['user'] == leave_out_user]
+# df_train = df.loc[df['user'] != leave_out_user]
+#
+# features = df_train.features
+#
+# # Grab the features and the labels
+# X_train = np.array(features.tolist())
+# Y_train = []
+#
+# for label in df_train.label:
+#     Y_train.append(cols.index(label))
+#
+# Y_train = np.array(Y_train)
+#
+# X_pred = np.array(df_test.features.tolist())
+# Y_pred = []
+#
+# for label in df_test.label:
+#     Y_pred.append(cols.index(label))
+#
+# Y_pred = np.array(Y_pred)
+#
+#
+# print np.shape(Y_train)
+# # Accuracy
+# clf_1 = GaussianNB()
+# clf_1.fit(X_train, Y_train)
+#
+# # Decision Trees
+# clf_2 = tree.DecisionTreeClassifier()
+# clf_2.fit(X_train, Y_train)
+#
+# #SVM
+# clf_3 = svm.SVC(kernel = "rbf", C=10000.0)
+# clf_3.fit(X_train, Y_train)
+#
+# print(clf_1.score(X_pred, Y_pred))
+# print(clf_2.score(X_pred, Y_pred))
+# print(clf_3.score(X_pred, Y_pred))
