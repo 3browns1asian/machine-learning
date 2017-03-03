@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d391ad3a-ff45-40d6-bbdb-bf3b7128583a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/set1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/hi_eliot.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/col.pkl" afterPath="$PROJECT_DIR$/col.pkl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decision_tree.pkl_03.npy" afterPath="$PROJECT_DIR$/decision_tree.pkl_03.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/bye_biraj.txt" afterPath="$PROJECT_DIR$/data/bye_biraj.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/hello_biraj.txt" afterPath="$PROJECT_DIR$/data/hello_biraj.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voice_model.py" afterPath="$PROJECT_DIR$/voice_model.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +22,8 @@
       <file leaf-file-name="voice_model.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/voice_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="265" column="54" lean-forward="false" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="54" />
+            <state relative-caret-position="3">
+              <caret line="243" column="0" lean-forward="true" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
               <folding>
                 <element signature="e#882#891#0" expanded="true" />
               </folding>
@@ -364,12 +361,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/voice_model.py</url>
-          <line>384</line>
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -441,8 +432,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/voice_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="265" column="54" lean-forward="false" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="54" />
+        <state relative-caret-position="3">
+          <caret line="243" column="0" lean-forward="true" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
           <folding>
             <element signature="e#882#891#0" expanded="true" />
           </folding>

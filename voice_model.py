@@ -40,10 +40,15 @@ def mad(data, axis=None):
     return np.mean(np.absolute(data - np.mean(data, axis)), axis)
     
 
-def prepare_training_data():
+def prepare_data(train=True):
+    if train:
+        directory = './data'
+    else:
+        directory = './predict'
+
     data = []
 
-    for file in os.listdir("./data"):
+    for file in os.listdir(directory):
         values = {"left": [], "right": []}
         names = file.split("_")
         sign = names[0]
@@ -55,7 +60,7 @@ def prepare_training_data():
         
         left_vals = []
         right_vals = []        
-        for line in open("./data/" + file):
+        for line in open(directory + "/" + file):
             splits = line.split("|")
             
             if splits[0] == "END" or splits[0] == "END\n":
@@ -95,59 +100,7 @@ def prepare_training_data():
     return data
     
 
-def prepare_testing_data():
-    data = []
-
-    for file in os.listdir("./predict"):
-        if file == ".DS_Store":
-            continue
-        
-        values = {"left": [], "right": []}
-        
-        left_vals = []
-        right_vals = []
-        
-        for line in open("./predict/" + file):
-            splits = line.split("|")
-
-            if splits[0] == "END" or splits[0] == "END\n":
-                values["left"].append(left_vals)
-                values["right"].append(right_vals)
-                left_vals = []
-                right_vals = []
-            else:
-                if "|" in line:
-                    left_array = splits[0].split(",")
-                    right_array = splits[1].split(",")
-
-                    left_value = [float(left_array[0]), float(left_array[1]), float(left_array[2]),
-                                  float(left_array[3]), float(left_array[4]), float(left_array[5]),
-                                  float(left_array[6]), float(left_array[7]),
-                                  float(left_array[8]), float(left_array[9]), float(left_array[10])]
-
-                    right_value = [float(right_array[0]), float(right_array[1]), float(right_array[2]),
-                                  float(right_array[3]), float(right_array[4]), float(right_array[5]),
-                                  float(right_array[6]), float(right_array[7]),
-                                  float(right_array[8]), float(right_array[9]), float(right_array[10])]
-
-                else:
-                    left_array = splits[0].split(",")
-                    left_value = [float(left_array[0]), float(left_array[1]), float(left_array[2]),
-                                  float(left_array[3]), float(left_array[4]), float(left_array[5]),
-                                  float(left_array[6]), float(left_array[7]),
-                                  float(left_array[8]), float(left_array[9]), float(left_array[10])]
-                    right_value = [0 for x in range(11)]
-
-                left_vals.append(left_value)
-                right_vals.append(right_value)
-
-        data.append({"values": values})
-
-    print data
-    return data
-    
-
-def feature_extraction(data, train=True):
+def feature_extraction(data):
     new_data = []
     
     for f_data in data:
@@ -253,17 +206,14 @@ def feature_extraction(data, train=True):
                 features.append(round(np.mean(b[:, 10])))
                 
             if len(features) > 0:
-                if train:
-                    new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features[:19]})
-                else:
-                    new_data.append({"features": features[:19]})
+                new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features[:19]})
     
     return new_data
     
 
 # Gather the training and the testing data
-train_data = feature_extraction(prepare_training_data())
-predict_data = feature_extraction(prepare_testing_data(), train=False)
+train_data = feature_extraction(prepare_data(train=True))
+predict_data = feature_extraction(prepare_data(train=False))
 
 df = pd.DataFrame(train_data)
 
@@ -286,6 +236,12 @@ Y_train = np.array(Y_train)
 predict_df = pd.DataFrame(predict_data)
 X_pred = np.array(predict_df.features.tolist())
 
+Y_pred = []
+for label in predict_df.label:
+    Y_pred.append(cols.index(label))
+
+Y_pred = np.array(Y_pred)
+
 # The classifiers
 # Naiive Bayes
 clf_1 = GaussianNB()
@@ -296,7 +252,7 @@ clf_2 = tree.DecisionTreeClassifier()
 clf_2.fit(X_train, Y_train)
 
 # SVM
-clf_3 = svm.SVC(kernel = "rbf", C=10000.0)
+clf_3 = svm.SVC(kernel='linear', C=10000.0)
 clf_3.fit(X_train, Y_train)
 
 # joblib.dump(clf_1, 'bayes.pkl')
@@ -310,9 +266,9 @@ preds_svm = clf_3.predict(X_pred)
 
 print("Naiive Bayes, Decision Tree, SVM")
 
-for i in range(len(preds_nb)):    
-    print(cols[preds_nb[i]] + "--" + cols[preds_dt[i]] +  "--" + cols[preds_svm[i]])
-    print("End")
+# for i in range(len(preds_nb)):
+#     print(cols[preds_nb[i]] + "--" + cols[preds_dt[i]] +  "--" + cols[preds_svm[i]])
+#     print("End")
 
 print(np.shape(X_train), np.shape(Y_train))
 
@@ -382,6 +338,6 @@ print(np.shape(X_train), np.shape(Y_train))
 # clf_3 = svm.SVC(kernel = "rbf", C=10000.0)
 # clf_3.fit(X_train, Y_train)
 #
-# print(clf_1.score(X_pred, Y_pred))
-# print(clf_2.score(X_pred, Y_pred))
-# print(clf_3.score(X_pred, Y_pred))
+print(clf_1.score(X_pred, Y_pred))
+print(clf_2.score(X_pred, Y_pred))
+print(clf_3.score(X_pred, Y_pred))
