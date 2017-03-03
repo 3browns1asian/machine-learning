@@ -271,7 +271,7 @@ print("Naiive Bayes, Decision Tree, SVM")
 #     print("End")
 
 print(np.shape(X_train), np.shape(Y_train))
-
+print(np.shape(X_pred), np.shape(Y_pred))
 # K-Fold Cross Validation
 #NOTE: Might throw an error where #of classes in subsample is 1.
 #kf = KFold(len(X_train), n_folds = 2)
