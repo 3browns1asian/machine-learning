@@ -2,69 +2,150 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d391ad3a-ff45-40d6-bbdb-bf3b7128583a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/bye_biraj.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/dont_biraj.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/for_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/for_eliot.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/hello_biraj.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/is_biraj.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/it_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/it_eliot.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/my_biraj.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/one_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/one_eliot.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/that_biraj.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/this_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/this_eliot.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/those_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/those_eliot.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/voice_biraj.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/your_biraj.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/bye_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/dont_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/for_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/hello_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/is_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/it_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/my_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/one_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/that_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/this_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/those_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/voice_amish.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/your_amish.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayes.pkl_01.npy" afterPath="$PROJECT_DIR$/bayes.pkl_01.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayes.pkl_02.npy" afterPath="$PROJECT_DIR$/bayes.pkl_02.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayes.pkl_03.npy" afterPath="$PROJECT_DIR$/bayes.pkl_03.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayes.pkl_04.npy" afterPath="$PROJECT_DIR$/bayes.pkl_04.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayes.pkl_05.npy" afterPath="$PROJECT_DIR$/bayes.pkl_05.npy" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bayes.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bayes.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bayes.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bayes.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bayes.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/col_minus.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/col_minus_1.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/col_minus_12260703.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/col_minus_12300703.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/bye_amish.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/bye_eliot.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/dont_amish.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/dont_eliot.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/for_akshay.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/for_biraj.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/hello_amish.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/hello_eliot.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/is_amish.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/is_eliot.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/my_amish.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/my_eliot.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/that_amish.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/that_eliot.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/voice_amish.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/voice_eliot.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/your_amish.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/your_eliot.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_1.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_1.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_1.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_1.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_1.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_12260703.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_12260703.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_12260703.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_12260703.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_12260703.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_12300703.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_12300703.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_12300703.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_12300703.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/decision_tree_minus_12300703.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/predict/for_biraj.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_06.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_07.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_08.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_09.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm.pkl_11.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_06.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_07.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_08.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_09.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus.pkl_11.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_06.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_07.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_08.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_09.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_1.pkl_11.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_06.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_07.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_08.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_09.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12230703.pkl_11.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_06.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_07.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_08.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_09.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12260703.pkl_11.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_06.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_07.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_08.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_09.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/svm_minus_12300703.pkl_11.npy" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayes.pkl" afterPath="$PROJECT_DIR$/bayes.pkl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/col.pkl" afterPath="$PROJECT_DIR$/col.pkl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decision_tree.pkl" afterPath="$PROJECT_DIR$/decision_tree.pkl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decision_tree.pkl_01.npy" afterPath="$PROJECT_DIR$/decision_tree.pkl_01.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decision_tree.pkl_02.npy" afterPath="$PROJECT_DIR$/decision_tree.pkl_02.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decision_tree.pkl_03.npy" afterPath="$PROJECT_DIR$/decision_tree.pkl_03.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decision_tree.pkl_04.npy" afterPath="$PROJECT_DIR$/decision_tree.pkl_04.npy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.pkl" afterPath="$PROJECT_DIR$/svm.pkl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.pkl_01.npy" afterPath="$PROJECT_DIR$/svm.pkl_01.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.pkl_02.npy" afterPath="$PROJECT_DIR$/svm.pkl_02.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.pkl_03.npy" afterPath="$PROJECT_DIR$/svm.pkl_03.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.pkl_05.npy" afterPath="$PROJECT_DIR$/svm.pkl_05.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.pkl_06.npy" afterPath="$PROJECT_DIR$/svm.pkl_06.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.pkl_07.npy" afterPath="$PROJECT_DIR$/svm.pkl_07.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.pkl_08.npy" afterPath="$PROJECT_DIR$/svm.pkl_08.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.pkl_09.npy" afterPath="$PROJECT_DIR$/svm.pkl_09.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svm.pkl_10.npy" afterPath="$PROJECT_DIR$/svm.pkl_10.npy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/for_akshay.txt" afterPath="$PROJECT_DIR$/data/for_akshay.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/for_biraj.txt" afterPath="$PROJECT_DIR$/data/for_biraj.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/bye_akshay.txt" afterPath="$PROJECT_DIR$/data/bye_akshay.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/dont_akshay.txt" afterPath="$PROJECT_DIR$/data/dont_akshay.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/hello_akshay.txt" afterPath="$PROJECT_DIR$/data/hello_akshay.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/is_akshay.txt" afterPath="$PROJECT_DIR$/data/is_akshay.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/it_akshay.txt" afterPath="$PROJECT_DIR$/data/it_akshay.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/it_biraj.txt" afterPath="$PROJECT_DIR$/data/it_biraj.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/my_akshay.txt" afterPath="$PROJECT_DIR$/data/my_akshay.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/one_akshay.txt" afterPath="$PROJECT_DIR$/data/one_akshay.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/one_biraj.txt" afterPath="$PROJECT_DIR$/data/one_biraj.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/that_akshay.txt" afterPath="$PROJECT_DIR$/data/that_akshay.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/this_akshay.txt" afterPath="$PROJECT_DIR$/data/this_akshay.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/this_biraj.txt" afterPath="$PROJECT_DIR$/data/this_biraj.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/those_akshay.txt" afterPath="$PROJECT_DIR$/data/those_akshay.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/those_biraj.txt" afterPath="$PROJECT_DIR$/data/those_biraj.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/voice_akshay.txt" afterPath="$PROJECT_DIR$/data/voice_akshay.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/your_akshay.txt" afterPath="$PROJECT_DIR$/data/your_akshay.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voice_model.py" afterPath="$PROJECT_DIR$/voice_model.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,46 +161,26 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../web-ml/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3197">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="e#92#101#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="voice_model.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/voice_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="233" column="33" lean-forward="false" selection-start-line="233" selection-start-column="33" selection-end-line="233" selection-end-column="33" />
+            <state relative-caret-position="-4931">
+              <caret line="19" column="82" lean-forward="true" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
               <folding>
                 <element signature="e#882#891#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manual_app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../web-ml/manual_app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="164" column="58" lean-forward="false" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bye_biraj_old.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../../../bye_biraj_old.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="77" lean-forward="false" selection-start-line="10" selection-start-column="77" selection-end-line="10" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="validation.py" pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Python/2.7/site-packages/sklearn/utils/validation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6919">
-              <caret line="414" column="0" lean-forward="false" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -142,9 +203,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/data/bye_biraj.txt" />
-        <option value="$PROJECT_DIR$/../web-ml/app.py" />
-        <option value="$PROJECT_DIR$/voice_model.py" />
         <option value="$PROJECT_DIR$/../web-ml/manual_app.py" />
+        <option value="$PROJECT_DIR$/voice_model.py" />
+        <option value="$PROJECT_DIR$/../web-ml/app.py" />
       </list>
     </option>
   </component>
@@ -181,34 +242,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="machine-learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="machine-learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="predict" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="machine-learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="machine-learning" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -218,7 +251,7 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.manual_app">
+  <component name="RunManager" selected="Python.voice_model">
     <configuration default="false" name="voice_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -393,8 +426,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.manual_app" />
-        <item index="1" class="java.lang.String" itemvalue="Python.voice_model" />
+        <item index="0" class="java.lang.String" itemvalue="Python.voice_model" />
+        <item index="1" class="java.lang.String" itemvalue="Python.manual_app" />
       </list>
     </recent_temporary>
   </component>
@@ -420,7 +453,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3559539" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3559539" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -502,7 +535,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6919">
           <caret line="414" column="0" lean-forward="false" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1488948034000" expanded="true" signature="25586:25642" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -552,7 +587,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6919">
           <caret line="414" column="0" lean-forward="false" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1488948034000" expanded="true" signature="25586:25642" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -575,9 +612,11 @@
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/sklearn/utils/validation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6919">
-          <caret line="414" column="0" lean-forward="false" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="7191">
+          <caret line="423" column="0" lean-forward="false" selection-start-line="423" selection-start-column="0" selection-end-line="423" selection-end-column="0" />
+          <folding>
+            <marker date="1488948034000" expanded="true" signature="25586:25642" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -604,30 +643,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../web-ml/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="134" column="64" lean-forward="true" selection-start-line="134" selection-start-column="64" selection-end-line="134" selection-end-column="64" />
-          <folding>
-            <element signature="e#92#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../web-ml/manual_app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="164" column="58" lean-forward="false" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+        <state relative-caret-position="136">
+          <caret line="386" column="51" lean-forward="false" selection-start-line="386" selection-start-column="51" selection-end-line="386" selection-end-column="51" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../web-ml/app2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../web-ml/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3197">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#92#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/voice_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="233" column="33" lean-forward="false" selection-start-line="233" selection-start-column="33" selection-end-line="233" selection-end-column="33" />
+        <state relative-caret-position="-4931">
+          <caret line="19" column="82" lean-forward="true" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
           <folding>
             <element signature="e#882#891#0" expanded="true" />
           </folding>

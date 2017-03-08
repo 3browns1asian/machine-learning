@@ -33,11 +33,13 @@ from scipy.fftpack import dct
 from sklearn.naive_bayes import GaussianNB
 from sklearn import tree
 from sklearn import svm
-from sklearn.cross_validation import KFold
+# from sklearn.cross_validation import KFold
 from sklearn.externals import joblib
+# from sklearn.neural_network import MLPClassifier
+from scipy.stats import skew
 
 
-seed(42)
+# seed(1)
 def mad(data, axis=None):
     return np.mean(np.absolute(data - np.mean(data, axis)), axis)
     
@@ -120,32 +122,38 @@ def feature_extraction(data):
                 # Feature 1: Mean of DCT of Acceleration of X
                 transformed_values_x = np.array(dct(a[:, 0]))
                 features.append(round(np.mean(a[:, 0]), 3))
+                # features.append(round(skew(a[:, 0]), 3))
 
                 # Feature 2: Mean of DCT of Acceleration of Y
                 transformed_values_y = np.array(dct(a[:, 1]))
                 features.append(round(np.mean(a[:, 1]), 3))
+                # features.append(round(skew(a[:, 1]), 3))
 
                 # Feature 3: Mean of DCT of Acceleration of Z
                 transformed_values_z = np.array(dct(a[:, 2]))
                 features.append(round(np.mean(a[:, 2]), 3))
+                # features.append(round(skew(a[:, 2]), 3))
 
                 # Feature 4/5: Mean Absolute Deviation and Mean of gyro in X
                 features.append(round(mad(a[:, 3]), 3))
                 features.append(round(np.mean(a[:, 3]), 3))
                 features.append(round(np.amax(a[:, 3]), 3))
                 features.append(round(np.amin(a[:, 3]), 3))
+                # features.append(round(np.var(a[:, 3]), 3))
 
                 # Feature 6/7: Mean Absolute Deviation and Mean of gyro in Y
                 features.append(round(mad(a[:, 4]), 3))
                 features.append(round(np.mean(a[:, 4]), 3))
                 features.append(round(np.amax(a[:, 4]), 3))
                 features.append(round(np.amin(a[:, 4]), 3))
+                # features.append(round(np.var(a[:, 4]), 3))
 
                 # Feature 8/9: Mean Absolute Deviation and Mean of gyro in Z
                 features.append(round(mad(a[:, 5]), 3))
                 features.append(round(np.mean(a[:, 5]), 3))
                 features.append(round(np.amax(a[:, 5]), 3))
                 features.append(round(np.amin(a[:, 5]), 3))
+                # features.append(round(np.var(a[:, 5]), 3))
 
                 # Feature 10/11: Standard Absolute Deviation and Mean of flex 1
                 features.append(round(np.std(a[:, 6])))
@@ -231,7 +239,7 @@ features = df.features
 
 print(cols)
 
-joblib.dump(cols, 'col_minus_12260703.pkl')
+joblib.dump(cols, 'col_plus.pkl')
 
 # Grab the features and the labels
 X_train = np.array(features.tolist())
@@ -264,9 +272,14 @@ clf_2.fit(X_train, Y_train)
 clf_3 = svm.SVC(kernel='linear', C=10.0)
 clf_3.fit(X_train, Y_train)
 
-joblib.dump(clf_1, 'bayes.pkl')
-joblib.dump(clf_2, 'decision_tree_minus_12260703.pkl')
-joblib.dump(clf_3, 'svm_minus_12260703.pkl')
+# Neural Network
+# clf_4 = MLPClassifier(solver='adam', alpha=1e-5, hidden_layer_sizes=(55, 2), random_state=1, max_iter=1000)
+# clf_4.fit(X_train, Y_train)
+
+joblib.dump(clf_1, 'bayes_plus.pkl')
+joblib.dump(clf_2, 'decision_tree_plus.pkl')
+joblib.dump(clf_3, 'svm_plus.pkl')
+# joblib.dump(clf_4, 'ml-models/NN_plus.pkl')
 
 # clf_4 = joblib.load('bayes.pkl')
 preds_nb = clf_1.predict(X_pred)
@@ -350,3 +363,4 @@ print(np.shape(X_pred), np.shape(Y_pred))
 print(clf_1.score(X_pred, Y_pred))
 print(clf_2.score(X_pred, Y_pred))
 print(clf_3.score(X_pred, Y_pred))
+# print(clf_4.score(X_pred, Y_pred))
