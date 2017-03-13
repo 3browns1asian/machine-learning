@@ -37,6 +37,7 @@ from sklearn import svm
 from sklearn.externals import joblib
 # from sklearn.neural_network import MLPClassifier
 from scipy.stats import skew
+from sklearn.linear_model import LogisticRegression
 
 
 # seed(1)
@@ -67,7 +68,7 @@ def prepare_data(train=True):
         for line in open(directory + "/" + file):
             splits = line.split("|")
             
-            if splits[0] == "END" or splits[0] == "END\n":
+            if splits[0] == "END" or splits[0] == "END\n" or splits[0] == "END\r\n":
                 values["left"].append(left_vals)
                 values["right"].append(right_vals)
                 left_vals = []
@@ -119,20 +120,28 @@ def feature_extraction(data):
             
             # Left hand features
             if len(a) != 0 and len(a[0]) != 0:
+                lengt = len(a[:, 0])
+
                 # Feature 1: Mean of DCT of Acceleration of X
-                transformed_values_x = np.array(dct(a[:, 0]))
+                # transformed_values_x = np.array(dct(a[:, 0]))
+                features.append(round(np.mean(a[:lengt / 2, 0]), 3))
+                features.append(round(np.mean(a[lengt / 2:, 0]), 3))
                 features.append(round(np.mean(a[:, 0]), 3))
                 # features.append(round(skew(a[:, 0]), 3))
 
                 # Feature 2: Mean of DCT of Acceleration of Y
-                transformed_values_y = np.array(dct(a[:, 1]))
+                # transformed_values_y = np.array(dct(a[:, 1]))
+                features.append(round(np.mean(a[:lengt / 2, 1]), 3))
+                features.append(round(np.mean(a[lengt / 2:, 1]), 3))
                 features.append(round(np.mean(a[:, 1]), 3))
                 # features.append(round(skew(a[:, 1]), 3))
 
                 # Feature 3: Mean of DCT of Acceleration of Z
-                transformed_values_z = np.array(dct(a[:, 2]))
+                # transformed_values_z = np.array(dct(a[:, 2]))
+                features.append(round(np.mean(a[:lengt / 2, 2]), 3))
+                features.append(round(np.mean(a[lengt / 2:, 2]), 3))
                 features.append(round(np.mean(a[:, 2]), 3))
-                # features.append(round(skew(a[:, 2]), 3))
+
 
                 # Feature 4/5: Mean Absolute Deviation and Mean of gyro in X
                 features.append(round(mad(a[:, 3]), 3))
@@ -223,7 +232,7 @@ def feature_extraction(data):
                 features.append(round(np.mean(b[:, 10])))
                 
             if len(features) > 0:
-                new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features[:26]})
+                new_data.append({"label": f_data["label"], "user": f_data["user"], "features": features[:32]})
     
     return new_data
     
@@ -239,7 +248,7 @@ features = df.features
 
 print(cols)
 
-joblib.dump(cols, 'col_plus.pkl')
+joblib.dump(cols, 'col_plus_jsl.pkl')
 
 # Grab the features and the labels
 X_train = np.array(features.tolist())
@@ -272,14 +281,14 @@ clf_2.fit(X_train, Y_train)
 clf_3 = svm.SVC(kernel='linear', C=10.0)
 clf_3.fit(X_train, Y_train)
 
-# Neural Network
-# clf_4 = MLPClassifier(solver='adam', alpha=1e-5, hidden_layer_sizes=(55, 2), random_state=1, max_iter=1000)
-# clf_4.fit(X_train, Y_train)
+# Logistic Regression
+clf_4 = LogisticRegression()
+clf_4.fit(X_train, Y_train)
 
-joblib.dump(clf_1, 'bayes_plus.pkl')
-joblib.dump(clf_2, 'decision_tree_plus.pkl')
-joblib.dump(clf_3, 'svm_plus.pkl')
-# joblib.dump(clf_4, 'ml-models/NN_plus.pkl')
+joblib.dump(clf_1, 'bayes_plus_jsl.pkl')
+joblib.dump(clf_2, 'decision_tree_plus_jsl.pkl')
+joblib.dump(clf_3, 'svm_plus_jsl.pkl')
+joblib.dump(clf_4, 'logistic_regression_jsl.pkl')
 
 # clf_4 = joblib.load('bayes.pkl')
 preds_nb = clf_1.predict(X_pred)
@@ -363,4 +372,4 @@ print(np.shape(X_pred), np.shape(Y_pred))
 print(clf_1.score(X_pred, Y_pred))
 print(clf_2.score(X_pred, Y_pred))
 print(clf_3.score(X_pred, Y_pred))
-# print(clf_4.score(X_pred, Y_pred))
+print(clf_4.score(X_pred, Y_pred))
